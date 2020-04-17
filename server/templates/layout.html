@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Binarika Server</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light" style="padding: 30px">
+        <a class="navbar-brand custom-control-inline" href="/">
+            <h1><span>Binarika Server</span></h1>
+        </a>
+
+        <form class="form-inline ml-auto" action="{{ url_for('search_results') }}" method="POST">
+            <div class="md-form my-0">
+                <input name="search_text" class="form-control" type="text" placeholder="Search Files" aria-label="Search">
+                <i class="fas fa-search text-white ml-3" aria-hidden="true"></i>
+            </div>
+        </form>
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('yara_rules') }}">[ Yara Rules ]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('background_filescan') }}">[ Full VT Scan ]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('background_yarascan') }}">[ Full Yara Scan ]</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main role="main">
+        <div class="jumbotron" style="padding-top: 100px">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% block body %}{% endblock %}
+        </div>
+    </main>
+
+    <hr/>
+    <footer class="text-muted">
+        <div class="container" style="margin: 20px">
+            <p>Binarika 1.0</p>
+            <p>&copy; Desmond Tan 2020</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
+</body>
+</html>

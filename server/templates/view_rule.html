@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h3><p>Displaying Yara Rule</p></h3>
+
+<hr/>
+<h4>Filename: {{ rule }}</h4><br>
+<p>Contents: <br>
+    {% for line in contents: %}
+        {{ line }}<br>
+    {% endfor %}
+</p>
+
+{% endblock %}

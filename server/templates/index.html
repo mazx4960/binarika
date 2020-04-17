@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h3><p>Displaying all File data on server</p></h3>
+
+<div class="table-responsive">
+    <table class="table table-light table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Hostname</th>
+                <th scope="col">Filename</th>
+                <th scope="col">Root</th>
+                <th scope="col">Hashed</th>
+                <th scope="col">File Type</th>
+                <th scope="col">File Size</th>
+            </tr>
+        </thead>
+
+        {% for file_data in files_data %}
+            <tr>
+                <td>{{ file_data['hostname'] }}</td>
+                <td><a href="{{ url_for('view_file', file_id=file_data['file_id']) }}">{{ file_data['filename'] }}</a></td>
+                <td>{{ file_data['root'] }}</td>
+                <td>{{ file_data['hashed'] }}</td>
+                <td>{{ file_data['file_type'] }}</td>
+                <td>{{ file_data['file_size'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

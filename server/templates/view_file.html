@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h3><p>Displaying {{ file_data['filename'] }} metadata</p></h3>
+
+<table class="table table-dark">
+    <tr><td>Hostname</td><td>{{ file_data['hostname'] }}</td></tr>
+    <tr><td>Filename</td><td>{{ file_data['filename'] }}</td></tr>
+    <tr><td>Root</td><td>{{ file_data['root'] }}</td></tr>
+    <tr><td>Hashed value</td><td>{{ file_data['hashed'] }}</td></tr>
+    <tr><td>File Type</td><td>{{ file_data['file_type'] }}</td></tr>
+    <tr><td>File Size</td><td>{{ file_data['file_size'] }}</td></tr>
+    <tr><td>Uploaded to server</td><td>{{ file_data['Uploaded'] }}</td></tr>
+</table>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+           <a data-toggle="collapse" data-parent="#accordion" href="#vt_results" style="text-decoration: none">
+               Virus Total Results
+           </a>
+        </h3>
+    </div>
+
+    <div class="panel-heading">
+        <h3 class="panel-title">
+           <a data-toggle="collapse" data-parent="#accordion" href="#yarascan_results" style="text-decoration: none">
+               Yara Scan Results
+           </a>
+        </h3>
+    </div>
+
+    <div class="panel-heading">
+        <h3 class="panel-title">
+           <a data-toggle="collapse" data-parent="#accordion" href="#cuckoo_results" style="text-decoration: none">
+               Cuckoo Results
+           </a>
+        </h3>
+    </div>
+
+    <hr/>
+
+    <div id="vt_results" class="panel-collapse">
+        <div class="panel-body">
+            {% if file_data['vt_results'] == {} %}
+                <a href="{{ url_for('scan_file', file_id=file_data['file_id'], hashed=file_data['hashed']) }}" class="btn btn-default" role="button">Scan on Virus Total</a>
+            {% else %}
+            <h3>Displaying virus total results</h3>
+                <div class="table-responsive">
+                    <table class="table table-dark">
+                        {% for field in file_data['vt_results'] %}
+                            {% if field == 'scans' %}
+                                <tr>
+                                    <td>{{ field }}</td>
+                                    <td>
+                                        <div class="table-responsive">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">AV</th>
+                                                        <th scope="col">Detected</th>
+                                                        <th scope="col">Version</th>
+                                                        <th scope="col">Result</th>
+                                                        <th scope="col">Update</th>
+                                                    </tr>
+                                                </thead>
+                                                {% for sub_field in file_data['vt_results'][field] %}
+                                                    <tr>
+                                                        <td>{{ sub_field }}</td>
+                                                        <td>{{ file_data['vt_results'][field][sub_field]['detected'] }}</td>
+                                                        <td>{{ file_data['vt_results'][field][sub_field]['version'] }}</td>
+                                                        <td>{{ file_data['vt_results'][field][sub_field]['result'] }}</td>
+                                                        <td>{{ file_data['vt_results'][field][sub_field]['update'] }}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr><td>{{ field }}</td><td>{{ file_data['vt_results'][field] }}</td></tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <hr/>
+
+    <div id="yarascan_results">
+        <div class="panel-body">
+            <a href="{{ url_for('scan_yara', file_id=file_data['file_id'], hashed=file_data['hashed']) }}" class="btn btn-default" role="button">Yara scan</a>
+            <h3>Displaying yara scan results</h3>
+            <ul>
+                {% for rule in file_data['yara_results'] %}
+                    <li>{{ rule }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div id="cuckoo_results">
+        <div class="panel-body">
+            <h3>Displaying cuckoo results</h3>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

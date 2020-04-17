@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h3><p>Displaying all Yara Rules</p></h3>
+
+<div class="table-responsive">
+    <table class="table table-light table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Index</th>
+                <th scope="col">Filename</th>
+            </tr>
+        </thead>
+
+        {% for rulename in rules %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td><a href="{{ url_for('view_rule', rule=rulename) }}">{{ rulename }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
