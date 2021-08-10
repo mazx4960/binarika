@@ -38,7 +38,7 @@ python-magic==0.4.12
 pythonaes==1.0
 pytz==2019.3
 pyutil==3.3.0
-pywin32==227
+pywin32==301
 pywin32-ctypes==0.2.0
 requests==2.21.0
 scapy==2.4.2
