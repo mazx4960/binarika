@@ -41,7 +41,7 @@ pyutil==3.3.0
 pywin32==301
 pywin32-ctypes==0.2.0
 requests==2.26.0
-scapy==2.4.2
+scapy==2.4.5
 SFlock==0.3.10
 six==1.16.0
 unpy2exe==0.4
