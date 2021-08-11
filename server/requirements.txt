@@ -1,5 +1,5 @@
 altgraph==0.17
-aniso8601==8.0.0
+aniso8601==8.1.1
 certifi==2019.11.28
 cffi==1.14.6
 chardet==3.0.4
