@@ -49,4 +49,4 @@ urllib3==1.26.5
 wakeonlan==0.2.2
 Werkzeug==1.0.1
 yara==1.7.7
-yara-python==3.6.3
+yara-python==3.11.0
