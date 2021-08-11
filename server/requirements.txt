@@ -33,7 +33,7 @@ pycparser==2.20
 pyguacamole==0.6
 pyHook==1.5.1
 pyinstaller==3.6
-pyshark==0.4.2.9
+pyshark==0.4.3
 python-magic==0.4.12
 pythonaes==1.0
 pytz==2019.3
