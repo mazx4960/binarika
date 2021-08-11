@@ -34,7 +34,7 @@ pyguacamole==0.10
 pyHook==1.5.1
 pyinstaller==3.6
 pyshark==0.4.3
-python-magic==0.4.12
+python-magic==0.4.24
 pythonaes==1.0
 pytz==2019.3
 pyutil==3.3.0
