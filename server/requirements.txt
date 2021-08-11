@@ -14,7 +14,7 @@ Flask-RESTful==0.3.9
 future==0.18.2
 idna==2.10
 ipaddress==1.0.23
-ipython==2.2.0
+ipython==2.4.1
 itsdangerous==1.1.0
 Jinja2==3.0.1
 jsbeautifier==1.14.0
