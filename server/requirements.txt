@@ -43,7 +43,7 @@ pywin32-ctypes==0.2.0
 requests==2.21.0
 scapy==2.4.2
 SFlock==0.3.10
-six==1.14.0
+six==1.16.0
 unpy2exe==0.4
 urllib3==1.26.5
 wakeonlan==0.2.2
