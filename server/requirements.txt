@@ -20,7 +20,7 @@ Jinja2==2.11.3
 jsbeautifier==1.6.2
 lxml==4.6.3
 MarkupSafe==1.1.1
-olefile==0.43
+olefile==0.46
 oletools==0.60
 peepdf==0.4.2
 pefile==2019.4.18
