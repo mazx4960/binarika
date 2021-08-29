@@ -30,7 +30,7 @@ Pillow==8.3.1
 ptyprocess==0.7.0
 py==1.10.0
 pycparser==2.20
-pyguacamole==0.10
+pyguacamole==0.11
 pyHook==1.5.1
 pyinstaller==3.6
 pyshark==0.4.3
