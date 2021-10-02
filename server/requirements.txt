@@ -36,7 +36,7 @@ pyinstaller==3.6
 pyshark==0.4.3
 python-magic==0.4.24
 pythonaes==1.0
-pytz==2019.3
+pytz==2021.3
 pyutil==3.3.0
 pywin32==301
 pywin32-ctypes==0.2.0
