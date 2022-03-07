@@ -47,6 +47,6 @@ six==1.16.0
 unpy2exe==0.4
 urllib3==1.26.6
 wakeonlan==0.2.2
-Werkzeug==1.0.1
+Werkzeug==2.0.3
 yara==1.7.7
 yara-python==3.11.0
